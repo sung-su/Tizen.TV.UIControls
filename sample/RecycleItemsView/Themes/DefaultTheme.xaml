@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RecycleItemsView.Themes.DefaultTheme">
+
+    <Color x:Key="BackgroundColor">#312B2A</Color>
+    
+    <Color x:Key="RecycleItemsTitleTextColor">White</Color>
+    <Color x:Key="RecycleItemBackgroundColor">#066371</Color>
+    <Color x:Key="RecycleItemBackgroundFocusInColor">#f2f2f2</Color>
+    <Color x:Key="RecycleItemIconBackgroundFocusInColor">Gray</Color>
+    <Color x:Key="RecycleItemBorderColor">AntiqueWhite</Color>
+    <Color x:Key="RecycleItemTitleTextColor">WhiteSmoke</Color>
+    <Color x:Key="RecycleItemTitleTextFocusInColor">#262626</Color>
+    <Color x:Key="RecycleItemDetailsTextColor">#999999</Color>
+    <Color x:Key="RecycleItemDetailsTextColorOnImage">AntiqueWhite</Color>
+    <Color x:Key="RecycleItemHeaderColor">#312B2A</Color>
+    <Color x:Key="RecycleItemButtonColor">#530087</Color>
+    <Color x:Key="RecycleItemButtonFocusInColor">#d182ff</Color>
+    <Color x:Key="RecycleItemButtonTextColor">White</Color>
+    <Color x:Key="RecycleItemButtonTextFocusInColor">White</Color>
+
+</ResourceDictionary>

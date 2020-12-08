@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
+    xmlns:recycles="clr-namespace:RecycleItemsView.Views.RecycleItems">
+
+    <Style x:Key="RecycleItemFrameStyle" TargetType="Frame">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource RecycleItemBackgroundColor}" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="HasShadow" Value="False" />
+    </Style>
+
+    <Style x:Key="RecycleItemTitleStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="50" />
+        <Setter Property="MaxLines" Value="2" />
+        <Setter Property="TextColor" Value="{DynamicResource RecycleItemTitleTextColor}" />
+    </Style>
+
+    <Style x:Key="RecycleItemDetailsStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="End" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="MaxLines" Value="1" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+        <Setter Property="TextColor" Value="{DynamicResource RecycleItemDetailsTextColor}" />
+    </Style>
+
+    <Style x:Key="RecycleItemExtraStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="MaxLines" Value="7" />
+        <Setter Property="TextColor" Value="{DynamicResource RecycleItemTitleTextColor}" />
+    </Style>
+
+    <Style x:Key="RecycleBaseStyle" TargetType="tvcontrols:RecycleItemsView">
+        <Setter Property="ScrollBarVisibility" Value="Never" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="ContentMargin" Value="150, 150, 150, 150" />
+        <Setter Property="Spacing" Value="30" />
+    </Style>
+       
+    <Style x:Key="RecycleDefaultStyle" TargetType="tvcontrols:RecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="467" />
+        <Setter Property="ItemHeight" Value="937" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame Style="{StaticResource RecycleItemFrameStyle}">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="667" />
+                                <RowDefinition Height="180" />
+                                <RowDefinition Height="90" />
+                            </Grid.RowDefinitions>
+                            <Image
+                                x:Name="ImageResource"
+                                Grid.Row="0"
+                                Source="{Binding Image}"
+                                Aspect="Fill" />
+                            <Label
+                                x:Name="Title"
+                                Grid.Row="1"
+                                Style="{StaticResource RecycleItemTitleStyle}"
+                                Margin="25, 25, 25, 5"
+                                Text="{Binding Title}" />
+                            <Label
+                                x:Name="Details"
+                                Grid.Row="2"
+                                Style="{StaticResource RecycleItemDetailsStyle}"
+                                Margin="25, 5, 25, 25"
+                                Text="{Binding Details}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleOneLineTitleStyle" TargetType="tvcontrols:RecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="467" />
+        <Setter Property="ItemHeight" Value="807" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame Style="{StaticResource RecycleItemFrameStyle}">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="667" />
+                                <RowDefinition Height="140" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource RecycleItemTitleStyle}"
+                                VerticalOptions="Center"
+                                Margin="25"
+                                MaxLines="1"
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding Title}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleTwoLineTitleStyle" TargetType="tvcontrols:RecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="467" />
+        <Setter Property="ItemHeight" Value="867" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame Style="{StaticResource RecycleItemFrameStyle}">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="667" />
+                                <RowDefinition Height="200" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource RecycleItemTitleStyle}"
+                                Margin="25"
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding Title}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleInfoWithIconStyle" TargetType="tvcontrols:RecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="650" />
+        <Setter Property="ItemHeight" Value="920" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame Style="{StaticResource RecycleItemFrameStyle}">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="650" />
+                                <RowDefinition Height="180" />
+                                <RowDefinition Height="90" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource RecycleItemTitleStyle}"
+                                Margin="25, 25, 25, 5"
+                                Text="{Binding Title}" />
+                            <Grid Grid.Row="2" Margin="25, 5, 25, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="530" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    Style="{StaticResource RecycleItemDetailsStyle}"
+                                    Text="{Binding Details}" />
+                                <Image
+                                    Grid.Column="1"
+                                    Source="Icons/ic_installed.png"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="End" />
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleRoundedCornerWithIconStyle" TargetType="tvcontrols:RecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="650" />
+        <Setter Property="ItemHeight" Value="920" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame Style="{StaticResource RecycleItemFrameStyle}" CornerRadius="30">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="650" />
+                                <RowDefinition Height="180" />
+                                <RowDefinition Height="90" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                            <Label
+                                Grid.Row="1"
+                                Style="{StaticResource RecycleItemTitleStyle}"
+                                Margin="25, 25, 25, 5"
+                                Text="{Binding Title}" />
+                            <Grid Grid.Row="2" Margin="25, 5, 25, 25">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="530" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    Style="{StaticResource RecycleItemDetailsStyle}"
+                                    Text="{Binding Details}" />
+                                <Image
+                                    Grid.Column="1"
+                                    Source="Icons/ic_installed.png"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="End" />
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleInfoOnTheRightStyle" TargetType="tvcontrols:RecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="1300" />
+        <Setter Property="ItemHeight" Value="650" />
+        <Setter Property="Spacing" Value="50" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame Style="{StaticResource RecycleItemFrameStyle}">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="650" />
+                                <ColumnDefinition Width="650" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding Image}" Aspect="Fill" />
+                            <Grid Grid.Column="1" RowSpacing="25" Padding="25">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140" />
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Style="{StaticResource RecycleItemTitleStyle}"
+                                    Text="{Binding Title}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Style="{StaticResource RecycleItemDetailsStyle}"
+                                    VerticalOptions="Start"
+                                    Text="{Binding Details}" />
+                                <Label
+                                    Grid.Row="2"
+                                    Style="{StaticResource RecycleItemExtraStyle}"
+                                    Text="{Binding Extra}" />
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleBackgroundColorEffectStyle" TargetType="recycles:BackgroundColorRecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="334" />
+        <Setter Property="ItemHeight" Value="424" />
+        <Setter Property="Spacing" Value="70" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame
+                        Padding="25"
+                        BackgroundColor="{DynamicResource BackgroundColor}"
+                        BorderColor="Transparent"
+                        HasShadow="False">
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="284" />
+                                <RowDefinition Height="90" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                            <Label
+                                Grid.Row="1"
+                                Text="{Binding Title}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                FontSize="50"
+                                FontAttributes="Bold"
+                                TextColor="WhiteSmoke"
+                                LineBreakMode="TailTruncation" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RecycleIconBackgroundColorEffectStyle" TargetType="recycles:BackgroundColorRecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+        <Setter Property="ItemWidth" Value="364" />
+        <Setter Property="ItemHeight" Value="364" />
+        <Setter Property="Spacing" Value="70" />
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Frame
+                        Padding="40"
+                        CornerRadius="182"
+                        BackgroundColor="{DynamicResource BackgroundColor}"
+                        BorderColor="Transparent"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        WidthRequest="364"
+                        HeightRequest="364"
+                        HasShadow="False"
+                        IsClippedToBounds="True">
+                        <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                    </Frame>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

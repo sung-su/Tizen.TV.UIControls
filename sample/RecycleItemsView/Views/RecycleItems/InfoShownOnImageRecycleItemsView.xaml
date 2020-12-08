@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tvcontrols:RecycleItemsView
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
+    xmlns:recycles="clr-namespace:RecycleItemsView.Views.RecycleItems"
+    x:Class="RecycleItemsView.Views.RecycleItems.InfoShownOnImageRecycleItemsView">
+
+    <tvcontrols:RecycleItemsView.Resources>
+        <ResourceDictionary Source="../../Styles/RecycleItemsViewStyles.xaml" />
+
+        <Style x:Key="DetailsStyle" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="End" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="MaxLines" Value="1" />
+            <Setter Property="LineBreakMode" Value="TailTruncation" />
+            <Setter Property="TextColor" Value="{DynamicResource RecycleItemDetailsTextColorOnImage}" />
+        </Style>
+
+        <Style TargetType="recycles:InfoShownOnImageRecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+            <Setter Property="ItemWidth" Value="467" />
+            <Setter Property="ItemHeight" Value="867" />
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <AbsoluteLayout>
+                            <Frame
+                                Style="{StaticResource RecycleItemFrameStyle}"
+                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="667" />
+                                        <RowDefinition Height="200" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Style="{StaticResource RecycleItemTitleStyle}"
+                                        Margin="25"
+                                        Text="{Binding Title}" />
+                                </Grid>
+                            </Frame>
+                            <StackLayout
+                                x:Name="DetailsLayout"
+                                Padding="25"
+                                IsVisible="false"
+                                AbsoluteLayout.LayoutBounds="0, 0, 497, 667"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                VerticalOptions="End">
+                                <Label Style="{StaticResource DetailsStyle}" Text="{Binding Details}" />
+                            </StackLayout>
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </tvcontrols:RecycleItemsView.Resources>
+
+</tvcontrols:RecycleItemsView>

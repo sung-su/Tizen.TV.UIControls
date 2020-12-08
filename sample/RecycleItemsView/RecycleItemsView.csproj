@@ -1,0 +1,95 @@
+﻿<Project Sdk="Tizen.NET.Sdk/1.0.8">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>tizen40</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\WholeImageShownWithInfoRecycleItemsView.xaml.cs">
+      <DependentUpon>WholeImageShownWithInfoRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\WholeImageShownRecycleItemsView.xaml.cs">
+      <DependentUpon>WholeImageShownRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\InfoShownOnImageRecycleItemsView.xaml.cs">
+      <DependentUpon>InfoShownOnImageRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\InfoBackgroundColorRecycleItemsView.xaml.cs">
+      <DependentUpon>InfoBackgroundColorRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\ButtonInHeaderRecycleItemsView.xaml.cs">
+      <DependentUpon>ButtonInHeaderRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\BorderRecycleItemsView.xaml.cs">
+      <DependentUpon>BorderRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\BoldTextRecycleItemsView.xaml.cs">
+      <DependentUpon>BoldTextRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\BackgroundColorRecycleItemsView.xaml.cs">
+      <DependentUpon>BackgroundColorRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecycleItems\AdditionalInfoRecycleItemsView.xaml.cs">
+      <DependentUpon>AdditionalInfoRecycleItemsView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Styles\RecycleItemsViewStyles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\WholeImageShownWithInfoRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\WholeImageShownRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\InfoShownOnImageRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\InfoBackgroundColorRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\ButtonInHeaderRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\BorderRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\BoldTextRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\BackgroundColorRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\AdditionalInfoRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecycleItems\AdditionalDetailsRecycleItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
+    <PackageReference Include="Tizen.NET.TV" Version="4.4.0.1341" />
+    <PackageReference Include="Tizen.NET" Version="4.0.0"/>
+    <PackageReference Include="Xamarin.Forms" Version="9.9.9-nightly-15255" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Tizen.TV.UIControls.Forms\Tizen.TV.UIControls.Forms.csproj" />
+  </ItemGroup>
+
+</Project>

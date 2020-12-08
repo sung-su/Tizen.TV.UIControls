@@ -8,27 +8,81 @@
              x:Class="Sample.GridView.DataTemplateTest"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-            <Label  x:Name="myLabel" Text="Music" FontAttributes="Bold" 
-                    HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
-            <tvcontrols:GridView HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                <Label Text="GridView" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
+                <tvcontrols:GridView HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
+                        ItemWidth="200"
+                        ItemHeight="300"
+                        WidthRequest="1000"
+                        HeightRequest="600"
+                        ItemVerticalAlignment="0.5"
+                        ItemsSource="{Binding Items}">
+                    <tvcontrols:GridView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Purple">
+                                <Label Text="{Binding Text}" BackgroundColor="Purple"/>
+                                <Image Source="{Binding Source}" WidthRequest="400" HeightRequest="400" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding DetailText}" BackgroundColor="Purple"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </tvcontrols:GridView.ItemTemplate>
+                </tvcontrols:GridView>
+
+                <Label Text="RecycleItemsView" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
+                <tvcontrols:RecycleItemsView HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
                     ItemWidth="400"
                     ItemHeight="650"
                     WidthRequest="1000"
-                    HeightRequest="1600"
-                    ItemVerticalAlignment="0.5"
-                    ItemsSource="{Binding Items}"
-                    ItemSelected="GridView_ItemSelected">
-                <tvcontrols:GridView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout BackgroundColor="Purple">
-                            <Label Text="{Binding Text}" BackgroundColor="Purple"/>
-                            <Image Source="{Binding Source}" WidthRequest="400" HeightRequest="400" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding DetailText}" BackgroundColor="Purple"/>
-                        </StackLayout>
-                    </DataTemplate>
-                </tvcontrols:GridView.ItemTemplate>
-            </tvcontrols:GridView>
-        </StackLayout>
+                    HeightRequest="600"
+                    ItemsSource="{Binding Items}">
+                    <tvcontrols:RecycleItemsView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Purple" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Label Text="{Binding Text}" BackgroundColor="Purple"/>
+                                <Image Source="{Binding Source}" WidthRequest="400" HeightRequest="400" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding DetailText}" BackgroundColor="Purple"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </tvcontrols:RecycleItemsView.ItemTemplate>
+                </tvcontrols:RecycleItemsView>
+
+                <Label Text="CollectionView" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
+                <CollectionView x:Name="collectionview" HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
+                    WidthRequest="1000"
+                    HeightRequest="600"
+                    ItemSizingStrategy="MeasureFirstItem"
+                    ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Purple">
+                                <Label Text="{Binding Text}" BackgroundColor="Purple"/>
+                                <Image Source="{Binding Source}" WidthRequest="400" HeightRequest="400" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding DetailText}" BackgroundColor="Purple"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label Text="CarouselView" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
+                <CarouselView HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
+                    WidthRequest="1000"
+                    HeightRequest="600"
+                    ItemsSource="{Binding Items}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Purple">
+                                <Label Text="{Binding Text}" BackgroundColor="Purple"/>
+                                <Image Source="{Binding Source}" WidthRequest="400" HeightRequest="400" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding DetailText}" BackgroundColor="Purple"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
+             xmlns:tizenspecific="Xamarin.Forms.PlatformConfiguration.TizenSpecific"
              mc:Ignorable="d"
              NavigationPage.HasNavigationBar="False"
              x:Class="Sample.GridView.HorizontalTest"
@@ -26,36 +27,50 @@
                         </DataTemplate>
                     </tvcontrols:GridView.ItemTemplate>
                 </tvcontrols:GridView>
-                <Label Text="2nd GridView"/>
-                <tvcontrols:GridView BackgroundColor="Coral"
-                        ItemWidth="300"
-                        ItemHeight="300"
+                <Label Text="2nd RecycleItemsView"/>
+                <tvcontrols:RecycleItemsView BackgroundColor="Coral"
+                        ItemWidth="600"
+                        ItemHeight="600"
                         WidthRequest="800"
                         HeightRequest="800"
                         ItemsSource="{Binding Items}">
-                    <tvcontrols:GridView.ItemTemplate>
+                    <tvcontrols:RecycleItemsView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="650" HeightRequest="650" >
+                                <Label Text="{Binding Text}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="650" HeightRequest="650" />
                             </StackLayout>
                         </DataTemplate>
-                    </tvcontrols:GridView.ItemTemplate>
-                </tvcontrols:GridView>
-                <Label Text="3th GridView"/>
-                <tvcontrols:GridView BackgroundColor="LightPink"
-                        ItemWidth="300"
-                        ItemHeight="300"
+                    </tvcontrols:RecycleItemsView.ItemTemplate>
+                </tvcontrols:RecycleItemsView>
+                <Label Text="3th CollectionView"/>
+                <CollectionView BackgroundColor="LightPink"
+                        WidthRequest="800"
+                        HeightRequest="800"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="500" HeightRequest="500">
+                                <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="500" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CarouselView BackgroundColor="LightPink"
                         WidthRequest="800"
                         HeightRequest="800"
                         ItemsSource="{Binding Items}">
-                    <tvcontrols:GridView.ItemTemplate>
+                    <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="500" HeightRequest="500">
+                                <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="500" />
                             </StackLayout>
                         </DataTemplate>
-                    </tvcontrols:GridView.ItemTemplate>
-                </tvcontrols:GridView>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tvcontrols:RecycleItemsView
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
+    xmlns:recycles="clr-namespace:RecycleItemsView.Views.RecycleItems"
+    xmlns:res="clr-namespace:RecycleItemsView.Resources"
+    x:Class="RecycleItemsView.Views.RecycleItems.ButtonInHeaderRecycleItemsView">
+
+    <tvcontrols:RecycleItemsView.Resources>
+        <ResourceDictionary Source="../../Styles/RecycleItemsViewStyles.xaml" />
+
+        <Style TargetType="recycles:ButtonInHeaderRecycleItemsView" BasedOn="{StaticResource RecycleBaseStyle}">
+            <Setter Property="ButtonFocusInColor" Value="{DynamicResource RecycleItemButtonFocusInColor}" />
+            <Setter Property="ButtonFocusOutColor" Value="{DynamicResource RecycleItemButtonColor}" />
+            <Setter Property="ItemHeight" Value="837" />
+            <Setter Property="ItemWidth" Value="497" />
+            <Setter Property="Header">
+                <Setter.Value>
+                    <Frame
+                        Padding="40, 0, 0, 40"
+                        BackgroundColor="{DynamicResource RecycleItemHeaderColor}"
+                        BorderColor="Transparent"
+                        HasShadow="False"
+                        HeightRequest="837"
+                        WidthRequest="837">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="400" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="250" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                Text="Watch With the Family"
+                                TextColor="{DynamicResource RecycleItemTitleTextColor}"
+                                FontSize="90"
+                                FontAttributes="Bold"/>
+                            <Label
+                                Grid.Row="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                TextColor="{DynamicResource RecycleItemTitleTextColor}"
+                                FontSize="60"
+                                Text="Visit our collection" />
+                            <Frame
+                                Grid.Row="2"
+                                HorizontalOptions="End"
+                                VerticalOptions="End"
+                                Margin="100, 30"
+                                Padding="30"
+                                BackgroundColor="{DynamicResource RecycleItemButtonColor}"
+                                BorderColor="Transparent"
+                                HasShadow="False"
+                                CornerRadius="30">
+                                <Label
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="{DynamicResource RecycleItemButtonTextColor}"
+                                    FontSize="40"
+                                    Text="{x:Static res:AppResources.BrowseMore}" />
+                            </Frame>
+                        </Grid>
+                    </Frame>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <AbsoluteLayout>
+                            <Frame
+                                Padding="0"
+                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                BackgroundColor="{DynamicResource RecycleItemBorderColor}"
+                                BorderColor="{DynamicResource RecycleItemBorderColor}"
+                                IsVisible="False"
+                                HasShadow="False" />
+                            <Frame
+                                Style="{StaticResource RecycleItemFrameStyle}"
+                                AbsoluteLayout.LayoutBounds="15, 15, 467, 807"
+                                AbsoluteLayout.LayoutFlags="None">                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="667" />
+                                        <RowDefinition Height="140" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="Fill" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Style="{StaticResource RecycleItemTitleStyle}"
+                                        VerticalOptions="Center"
+                                        Margin="25"
+                                        MaxLines="1"
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding Title}" />
+                                </Grid>
+                            </Frame>
+                        </AbsoluteLayout>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </tvcontrols:RecycleItemsView.Resources>
+
+</tvcontrols:RecycleItemsView>

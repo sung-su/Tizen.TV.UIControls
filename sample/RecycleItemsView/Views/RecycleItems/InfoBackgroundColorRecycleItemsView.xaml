@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tvcontrols:RecycleItemsView
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
+    xmlns:recycles="clr-namespace:RecycleItemsView.Views.RecycleItems"
+    xmlns:res="clr-namespace:RecycleItemsView.Resources"
+    x:Class="RecycleItemsView.Views.RecycleItems.InfoBackgroundColorRecycleItemsView">
+
+    <tvcontrols:RecycleItemsView.Resources>
+        <ResourceDictionary Source="../../Styles/RecycleItemsViewStyles.xaml" />
+
+        <Style TargetType="recycles:InfoBackgroundColorRecycleItemsView" BasedOn="{StaticResource RecycleDefaultStyle}">
+            <Setter Property="TitleFocusInColor" Value="{DynamicResource RecycleItemTitleTextFocusInColor}" />
+            <Setter Property="TitleFocusOutColor" Value="{DynamicResource RecycleItemTitleTextColor}" />
+            <Setter Property="FocusInColor" Value="{DynamicResource RecycleItemBackgroundFocusInColor}" />
+            <Setter Property="FocusOutColor" Value="{DynamicResource RecycleItemBackgroundColor}" />
+        </Style>
+
+    </tvcontrols:RecycleItemsView.Resources>
+
+</tvcontrols:RecycleItemsView>

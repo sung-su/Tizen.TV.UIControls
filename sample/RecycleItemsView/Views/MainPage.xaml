@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RecycleItemsView.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tvcontrols="clr-namespace:Tizen.TV.UIControls.Forms;assembly=Tizen.TV.UIControls.Forms"
+    xmlns:tizen="clr-namespace:Xamarin.Forms.PlatformConfiguration.TizenSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:recycles="clr-namespace:RecycleItemsView.Views.RecycleItems"    
+    xmlns:res="clr-namespace:RecycleItemsView.Resources">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="../Styles/LabelStyles.xaml" />
+        <ResourceDictionary Source="../Styles/RecycleItemsViewStyles.xaml" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="{DynamicResource BackgroundColor}">
+
+                <Label x:Name="label1" Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.WithHeader}" />
+                <recycles:ButtonInHeaderRecycleItemsView x:Name="recycler1" ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label x:Name="label2" Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.WithHeader}" />
+                <recycles:ButtonInHeaderRecycleItemsView x:Name="recycler2" ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.ImageExpansion}" />
+                <recycles:WholeImageShownRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.ImageInfoExpansion}" />
+                <recycles:WholeImageShownWithInfoRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.ImageCell}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleBaseStyle}"
+                    ItemWidth="467"
+                    ItemHeight="667"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding NarrowItems}">
+                    <tvcontrols:RecycleItemsView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell ImageSource="{Binding Image}" Text="{Binding Title}" Detail="{Binding Details}" />
+                        </DataTemplate>
+                    </tvcontrols:RecycleItemsView.ItemTemplate>
+                </tvcontrols:RecycleItemsView>
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.OneLineTitle}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleOneLineTitleStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.TwoLineTitle}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleTwoLineTitleStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.TwoLineTitleInfo}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleDefaultStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.WithIcon}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleInfoWithIconStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding SquareItems}"/>
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.RoundedCorner}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleRoundedCornerWithIconStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding SquareItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.InfoOnTheRight}" />
+                <tvcontrols:RecycleItemsView
+                    Style="{StaticResource RecycleInfoOnTheRightStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding SquareItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.Border}" />
+                <recycles:BorderRecycleItemsView ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.BoldText}" />
+                <recycles:BoldTextRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.AdditionalDetails}" />
+                <recycles:AdditionalDetailsRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.AdditionalInfo}" />
+                <recycles:AdditionalInfoRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.DetailsOnImage}" />
+                <recycles:InfoShownOnImageRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.InfoColor}" />
+                <recycles:InfoBackgroundColorRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding NarrowItems}" />
+
+                <Label Style="{StaticResource RecycleItemsTitleStyle}" Text="{x:Static res:AppResources.BackgroundColor}" />
+                <recycles:BackgroundColorRecycleItemsView ItemSelected="OnItemSelected" ItemsSource="{Binding SettingItems}" />
+
+                <recycles:BackgroundColorRecycleItemsView
+                    Style="{StaticResource RecycleBackgroundColorEffectStyle}"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding SettingItems}" />
+
+            </StackLayout>
+        </ScrollView>          
+    </ContentPage.Content>
+</ContentPage>
