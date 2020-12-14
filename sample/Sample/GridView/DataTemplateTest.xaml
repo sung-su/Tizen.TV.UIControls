@@ -48,7 +48,7 @@
                 </tvcontrols:RecycleItemsView>
 
                 <Label Text="CollectionView" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
-                <CollectionView x:Name="collectionview" HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
+                <CollectionView HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
                     WidthRequest="1000"
                     HeightRequest="600"
                     ItemSizingStrategy="MeasureFirstItem"
@@ -67,6 +67,26 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
+                <Label Text="CollectionView with TizenSpecific" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
+                <CollectionView x:Name="collectionview" HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
+                    WidthRequest="1000"
+                    HeightRequest="600"
+                    ItemSizingStrategy="MeasureFirstItem"
+                    ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Purple">
+                                <Label Text="{Binding Text}" BackgroundColor="Purple"/>
+                                <Image Source="{Binding Source}" WidthRequest="400" HeightRequest="400" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding DetailText}" BackgroundColor="Purple"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
                 <Label Text="CarouselView" FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Large"/>
                 <CarouselView HorizontalOptions="FillAndExpand" BackgroundColor="Beige"
                     WidthRequest="1000"

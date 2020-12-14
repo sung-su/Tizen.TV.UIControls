@@ -11,7 +11,7 @@
              Title="GridView">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout x:Name="stack">
                 <Label Text="1st GridView"/>
                 <tvcontrols:GridView BackgroundColor="LightGoldenrodYellow"
                         ItemWidth="300"
@@ -27,6 +27,7 @@
                         </DataTemplate>
                     </tvcontrols:GridView.ItemTemplate>
                 </tvcontrols:GridView>
+                <!--
                 <Label Text="2nd RecycleItemsView"/>
                 <tvcontrols:RecycleItemsView BackgroundColor="Coral"
                         ItemWidth="600"
@@ -43,7 +44,8 @@
                     </tvcontrols:RecycleItemsView.ItemTemplate>
                 </tvcontrols:RecycleItemsView>
                 <Label Text="3th CollectionView"/>
-                <CollectionView BackgroundColor="LightPink"
+                <CollectionView
+                        BackgroundColor="LightPink"
                         WidthRequest="800"
                         HeightRequest="800"
                         ItemSizingStrategy="MeasureFirstItem"
@@ -59,6 +61,26 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+                <Label Text="4th CollectionView with TizenSpecific"/>
+                <CollectionView x:Name="collectionview"
+                        BackgroundColor="LightPink"
+                        WidthRequest="800"
+                        HeightRequest="800"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="500" HeightRequest="500">
+                                <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="500" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="5th CarouselView"/>
+                
                 <CarouselView BackgroundColor="LightPink"
                         WidthRequest="800"
                         HeightRequest="800"
@@ -71,6 +93,65 @@
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
+                -->
+                <Label Text="6th CollectionView with VSM"/>
+                <CollectionView x:Name="collectionview2"
+                        BackgroundColor="LightPink"
+                        WidthRequest="800"
+                        HeightRequest="800"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame x:Name="myFrame">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Green" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Focused">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Red" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame.Content>
+                                    <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="500" HeightRequest="500">
+                                        <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="500" />
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="7th CollectionView with frame"/>
+                <CollectionView x:Name="collectionview3"
+                        BackgroundColor="LightPink"
+                        WidthRequest="800"
+                        HeightRequest="800"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame x:Name="myFrame" Focused="FrameFocused" Unfocused="FrameUnFocused">
+                                <Frame.Content>
+                                    <StackLayout BackgroundColor="{Binding Color}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="500" HeightRequest="500">
+                                        <Label Text="{Binding Text}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="500" HeightRequest="500" />
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
